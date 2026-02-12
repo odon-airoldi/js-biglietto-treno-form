@@ -27,12 +27,9 @@ raffinando la parte di HTML e CSS in modo da renderla esteticamente gradevole.
 
 
 const formEl = document.querySelector('form');
-const kmrouteEl = document.getElementById('kmroute');
-const userageEl = document.getElementById('userage');
-
+const kmrouteEl = document.getElementById('km-route');
+const userageEl = document.getElementById('user-age');
 const ticketEl = document.querySelector('.ticket')
-
-
 
 formEl.addEventListener('submit', function(e){
 
@@ -52,7 +49,6 @@ formEl.addEventListener('submit', function(e){
     } else {
         prezzoBiglietto = prezzoTratta
     }
-
 
     ticketEl.innerHTML = `Distanza(km):${kmrouteElvalue} Età(anni):${userageElvalue} Totale(€):${prezzoBiglietto.toFixed(2)}`
 
