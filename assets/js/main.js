@@ -30,13 +30,14 @@ const formEl = document.querySelector('form');
 const kmrouteEl = document.getElementById('kmroute');
 const userageEl = document.getElementById('userage');
 
+const ticketEl = document.querySelector('.ticket')
+
 
 
 formEl.addEventListener('submit', function(e){
 
     e.preventDefault()
 
-    
     const kmrouteElvalue = kmrouteEl.value;
     const userageElvalue = userageEl.value;
     const prezzoAlKm = 0.21;
@@ -45,20 +46,16 @@ formEl.addEventListener('submit', function(e){
     let prezzoBiglietto;
 
     if ( userageElvalue < 18 ) {
-
         prezzoBiglietto = prezzoTratta - prezzoTratta * 0.2
-
     } else if ( userageElvalue >= 65) {
-
         prezzoBiglietto = prezzoTratta - prezzoTratta * 0.4
-
     } else {
-
         prezzoBiglietto = prezzoTratta
-
     }
 
-    console.log(`Distanza(km):${kmrouteElvalue} Età(anni):${userageElvalue} Totale(€):${prezzoBiglietto.toFixed(2)}`);
+
+    ticketEl.innerHTML = `Distanza(km):${kmrouteElvalue} Età(anni):${userageElvalue} Totale(€):${prezzoBiglietto.toFixed(2)}`
+
 
 });
 
