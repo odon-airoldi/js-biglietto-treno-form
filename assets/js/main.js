@@ -26,15 +26,21 @@ raffinando la parte di HTML e CSS in modo da renderla esteticamente gradevole.
 
 
 
-const formEl = document.querySelector('form');
+const formEl = document.getElementById('form');
+const usernameEL = document.getElementById('user-name');
 const kmrouteEl = document.getElementById('km-route');
 const userageEl = document.getElementById('user-age');
-const ticketEl = document.querySelector('.ticket')
+
+const usernameOutput = document.querySelector('.user-name-output');
+const kmrouteOutput = document.querySelector('.km-route-output');
+const userageOutput = document.querySelector('.user-age-output');
+const ticketpriceOutput = document.querySelector('.ticket-price-output');
 
 formEl.addEventListener('submit', function(e){
 
     e.preventDefault()
 
+    const usernameELvalue = usernameEL.value;
     const kmrouteElvalue = kmrouteEl.value;
     const userageElvalue = userageEl.value;
     const prezzoAlKm = 0.21;
@@ -42,16 +48,26 @@ formEl.addEventListener('submit', function(e){
 
     let prezzoBiglietto;
 
-    if ( userageElvalue < 18 ) {
+    if ( userageElvalue == 'Ragazzo') {
         prezzoBiglietto = prezzoTratta - prezzoTratta * 0.2
-    } else if ( userageElvalue >= 65) {
+    } else if ( userageElvalue == 'Anziano') {
         prezzoBiglietto = prezzoTratta - prezzoTratta * 0.4
-    } else {
+    } else if ( userageElvalue == 'Adulto') {
         prezzoBiglietto = prezzoTratta
     }
 
-    ticketEl.innerHTML = `Distanza(km):${kmrouteElvalue} Età(anni):${userageElvalue} Totale(€):${prezzoBiglietto.toFixed(2)}`
+    // if ( userageElvalue < 18 ) {
+    //     prezzoBiglietto = prezzoTratta - prezzoTratta * 0.2
+    // } else if ( userageElvalue >= 65) {
+    //     prezzoBiglietto = prezzoTratta - prezzoTratta * 0.4
+    // } else {
+    //     prezzoBiglietto = prezzoTratta
+    // }
 
+    usernameOutput.innerHTML = usernameELvalue;
+    kmrouteOutput.innerHTML = kmrouteElvalue;
+    userageOutput.innerHTML = userageElvalue;
+    ticketpriceOutput.innerHTML = `${prezzoBiglietto.toFixed(2)} €`;
 
 });
 

@@ -14,43 +14,53 @@
         <div class="row">
             <div class="col">
                 <div class="border border-light-subtle p-5 rounded-2">
-                    <form class="row g-3">
+                    <form id="form" class="row g-3">
                         <div class="col-12">
                             <h2 class="h3">Passeggero</h2>
                         </div>
                         <div class="col-12">
-                            <input type="text" id="user-name" class="form-control" placeholder="Nome e Cognome" />
+                            <label for="user-name" class="form-label text-secondary">Nome e Cognome</label>
+                            <input type="text" id="user-name" class="form-control" />
                         </div>
                         <div class="col-md-6">
-                            <input type="text" id="km-route" class="form-control" placeholder="Km" />
+                            <label for="km-route" class="form-label text-secondary">Distanza</label>
+                            <input type="text" id="km-route" class="form-control" />
                         </div>
                         <div class="col-md-6">
-                            <input type="text" id="user-age" class="form-control" placeholder="Age" />
+                            <label for="user-age" class="form-label text-secondary">Tariffa</label>
+                            <select id="user-age" class="form-select" aria-label="select">
+                                <option selected value="Adulto">Adulto</option>
+                                <option value="Ragazzo">Ragazzo (fino 18 anni)</option>
+                                <option value="Anziano">Anziano (dai 65 anni)</option>
+                            </select>
                         </div>
                         <div class="col-12">
-                            <button class="btn btn-primary">Submit</button>
+                            <button class="btn btn-primary">Calcola biglietto</button>
                         </div>
                     </form>
                 </div>
             </div>
             <div class="col">
-                <div class="ticket bg-light p-5 rounded-2">
+                <div class="bg-light p-5 rounded-2 h-100">
                     <div class="row g-3">
                         <div class="col-12">
                             <h2 class="h3">Il tuo biglietto</h2>
                         </div>
-                        <div class="col">
-                            <span>Nome Cognome</span>
-                            <div class=""></div>
+                        <div class="col-12">
+                            <span class="text-secondary">Nome Cognome</span>
+                            <div class="user-name-output"></div>
                         </div>
-                        <div class="col">
-                            <span>Età</span>
+                        <div class="col-md-6">
+                            <span class="text-secondary">Distanza</span>
+                            <div class="km-route-output"></div>
                         </div>
-                        <div class="col">
-                            <span>Km</span>
+                        <div class="col-md-6">
+                            <span class="text-secondary">Tariffa</span>
+                            <div class="user-age-output"></div>
                         </div>
-                        <div class="col">
-                            <span>Prezzo biglietto</span>
+                        <div class="col-12">
+                            <span class="text-secondary">Prezzo biglietto</span>
+                            <div class="ticket-price-output"></div>
                         </div>
                     </div>
                 </div>
